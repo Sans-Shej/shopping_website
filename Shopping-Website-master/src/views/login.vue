@@ -20,7 +20,7 @@
               </div>
               <button id>Log in</button>
               <div class="register">
-                <p>Don't have an account? <a href="#">Register</a></p>
+                <p>Don't have an account? <router-link class="left" to="/Signup"><p>Register</p></router-link></p>
               </div>
             </form>
           </div>
@@ -36,7 +36,9 @@
       data() {
         return {};
       },
-      methods: {}
+      methods: {
+        async loginUser() {}
+      }
     }
   </script>
   
