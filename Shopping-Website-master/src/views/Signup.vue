@@ -1,14 +1,12 @@
 <template>
     <section>
-      <div class="form">
-        <h1>{{ title }}</h1>
-        <form>
-          <input type="text" placeholder="NAME" v-model="name"><br>
-          <input type="text" placeholder="USERNAME" v-model="username"><br>
-          <input type="text" placeholder="EMAIL" v-model="email"><br>
-          <input type="password" placeholder="PASSWORD" v-model="password"><br>
-          <input type="password" placeholder="CONFIRM PASSWORD" v-model="confirmPassword"><br>
-          <input type="submit" value="SIGN UP" @click.prevent="submitForm">
+      <div class="form"><br>
+        <h1>{{ title }}</h1><br>
+        <form >
+          <input type="text" id="name" placeholder="NAME" v-model="name" required><br><br>
+          <input type="text" id="email" placeholder="EMAIL" v-model="email" required><br><br>
+          <input type="password" id="password" placeholder="PASSWORD" v-model="password" required><br><br><br>
+          <input type="submit" value="SIGN UP" @click="registerUser">
         </form>
       </div>
     </section>
@@ -16,7 +14,7 @@
 
   <script>
   export default {
-    name: "SignUpForm",
+    // name: "SignUpForm",
     props: {
       title: {
         type: String,
@@ -25,32 +23,42 @@
     },
     data() {
       return {
-        name: "",
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+        register: {
+          name: "",
+          email: "",
+          password: ""
+      }
       };
     },
     methods: {
-      submitForm() {
-        const formData = {
-          name: this.name,
-          username: this.username,
-          email: this.email,
-          password: this.password,
-          confirmPassword: this.confirmPassword,
-        };
-        console.log(formData);
-        // Here you can send the form data to the server
-      },
+      async registerUser() {
+        try {
+        let response = await this.$http.post("/user/Signup", this.register);
+        console.log(response);
+        let token = response.data.token;
+        if (token) {
+          localStorage.setItem("jwt", token);
+          this.$router.push("/login");
+          swal("Success", "Registration Was successful", "success");
+        } else {
+          swal("Error", "Something Went Wrong", "error");
+        }
+      } catch (err) {
+        let error = err.response;
+        if (error.status == 409) {
+          swal("Error", error.data.message, "error");
+        } else {
+          swal("Error", error.data.err.message, "error");
+        }
+      }
+      }
     },
   };
   </script>
   
   <style scoped>
     section {
-      background: url("@/assets/img/heroAbout.jpg") no-repeat;
+      background: url("@/assets/backIcon.png") no-repeat;
       background-position: center;
       background-size: cover;
       height: 100vh;
@@ -58,14 +66,15 @@
       display: flex;
     }
   
-    section {
+    /* section {
       display: flex;
-    }
+    } */
   
     h1 {
       font-family: sans-serif;
       text-align: center;
       font-size: 35px;
+      font-weight: bold;
       color: rgb(254, 254, 254);
       text-transform: uppercase;
     }
@@ -73,13 +82,13 @@
     .form {
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 55%;
       transform: translate(-50%,-50%);
       border: 2px solid #ffffff;
       background: transparent;
       backdrop-filter: blur(60px);
       width: 400px;
-      height: 500px;
+      height: 450px;
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 0 20px;
@@ -87,7 +96,7 @@
   
     input {
       margin-top: 20px;
-      padding: 3px;
+      padding: 15px;
       height: 35px;
       width: 330px;
       font-size: 14px;

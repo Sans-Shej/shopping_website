@@ -7,18 +7,17 @@
               <h2>Login</h2>
               <div class="inputbox">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type="#" required>
+                <input type="#" required id="email" v-model="login.email" @submit.prevent="loginUser" >
                 <label for="">Email</label>
               </div>
+
               <div class="inputbox">
                 <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" required>
+                <input type="password" id="password" required v-model="login.password">
                 <label for="">Password</label>
               </div>
-              <div class="forget">
-                <label for=""><input type="checkbox">Remember Me  <a href="#">Forgot Password</a></label>
-              </div>
-              <button id>Log in</button>
+
+              <button type="submit">Log in</button>
               <div class="register">
                 <p>Don't have an account? <router-link class="left" to="/Signup"><p>Register</p></router-link></p>
               </div>
@@ -27,6 +26,7 @@
         </div>
       </section>
     </div>
+
   </template>
   
   <script>
@@ -34,10 +34,28 @@
       name: 'LoginPage',
       components: {},
       data() {
-        return {};
+        return {
+          login: {
+            email: "",
+            password: ""
+          }
+        };
       },
       methods: {
-        async loginUser() {}
+        async loginUser() {
+          try {
+        let response = await this.$http.post("/user/login", this.login);
+        let token = response.data.token;
+        localStorage.setItem("jwt", token);
+        if (token) {
+          swal("Success", "Login Successful.", "success");
+          this.$router.push("/");
+        }
+      } catch (err) {
+        swal("Error", "Wrong email or password.", "error");
+        console.log(err.response);
+      }
+        }
       }
     }
   </script>
