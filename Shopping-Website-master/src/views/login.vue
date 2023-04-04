@@ -48,11 +48,11 @@
         let token = response.data.token;
         localStorage.setItem("jwt", token);
         if (token) {
-          swal("Success", "Login Successful.", "success");
+          // swal("Success", "Login Successful.", "success");
           this.$router.push("/");
         }
       } catch (err) {
-        swal("Error", "Wrong email or password.", "error");
+        // swal("Error", "Wrong email or password.", "error");
         console.log(err.response);
       }
         }

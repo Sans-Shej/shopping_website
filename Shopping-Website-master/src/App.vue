@@ -3,6 +3,7 @@
     rel="stylesheet"
     href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
   />
+ 
   <Navbar @toggle="toggleCart" />
   <Cart :class="{ open: !openThisCart }" @toggleCart="toggleCart" />
   <router-view :class="{ opacity: openThisCart }" />

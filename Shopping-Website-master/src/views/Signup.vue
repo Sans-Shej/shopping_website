@@ -3,10 +3,10 @@
       <div class="form"><br>
         <h1>{{ title }}</h1><br>
         <form >
-          <input type="text" id="name" placeholder="NAME" v-model="name" required><br><br>
-          <input type="text" id="email" placeholder="EMAIL" v-model="email" required><br><br>
-          <input type="password" id="password" placeholder="PASSWORD" v-model="password" required><br><br><br>
-          <input type="submit" value="SIGN UP" @click="registerUser">
+          <input type="text" id="name" placeholder="NAME"  required><br><br>
+          <input type="text" id="email" placeholder="EMAIL"  required><br><br>
+          <input type="password" id="password" placeholder="PASSWORD"  required><br><br><br>
+          <input type="submit" value="SIGN UP" @submit.prevent="registerUser">
         </form>
       </div>
     </section>
@@ -39,16 +39,16 @@
         if (token) {
           localStorage.setItem("jwt", token);
           this.$router.push("/login");
-          swal("Success", "Registration Was successful", "success");
+          // swal("Success", "Registration Was successful", "success");
         } else {
           swal("Error", "Something Went Wrong", "error");
         }
       } catch (err) {
         let error = err.response;
         if (error.status == 409) {
-          swal("Error", error.data.message, "error");
+          // swal("Error", error.data.message, "error");
         } else {
-          swal("Error", error.data.err.message, "error");
+          // swal("Error", error.data.err.message, "error");
         }
       }
       }
@@ -58,7 +58,7 @@
   
   <style scoped>
     section {
-      background: url("@/assets/backIcon.png") no-repeat;
+      background: url("@/assets/img/heroAbout.jpg") no-repeat;
       background-position: center;
       background-size: cover;
       height: 100vh;
@@ -66,9 +66,9 @@
       display: flex;
     }
   
-    /* section {
+    section {
       display: flex;
-    } */
+    }
   
     h1 {
       font-family: sans-serif;

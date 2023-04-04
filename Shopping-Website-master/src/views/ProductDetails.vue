@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("http://fonts.cdnfonts.com/css/valverde");
+/* @import url("http://fonts.cdnfonts.com/css/valverde"); */
 option:first-child {
   display: none;
 }

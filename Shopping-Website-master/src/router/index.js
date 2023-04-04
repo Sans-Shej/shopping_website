@@ -8,6 +8,7 @@ import Checkout from "../views/Checkout.vue";
 import ProductDetails from "../views/ProductDetails.vue";
 import login from "../views/login.vue";
 import Signup from "../views/Signup.vue";
+import Payment from "../views/Payment.vue";
 // Vue.use(VueRouter);
 
 const routes = [
@@ -15,9 +16,9 @@ const routes = [
     path: "/",
     name: "home",
     component: HomePage,
-    meta: {
-      requiresAuth: true
-    }
+    // meta: {
+    //   requiresAuth: true
+    // }
   },
   {
     path: "/about",
@@ -46,6 +47,12 @@ const routes = [
     path: "/checkout",
     name: "Checkout",
     component: Checkout,
+    props: true,
+  },
+  {
+    path: "/Payment",
+    name: "Payment",
+    component: Payment,
     props: true,
   },
   {
@@ -78,18 +85,18 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem("jwt") == null) {
-      next({
-        path: "/"
-      });
-    } else {
-      next();
-    }
-  } else {
-    next();
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(record => record.meta.requiresAuth)) {
+//     if (localStorage.getItem("jwt") == null) {
+//       next({
+//         path: "/"
+//       });
+//     } else {
+//       next();
+//     }
+//   } else {
+//     next();
+//   }
+// });
 
 export default router;
