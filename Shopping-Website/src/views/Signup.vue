@@ -2,19 +2,21 @@
     <section>
       <div class="form"><br>
         <h1>{{ title }}</h1><br>
-        <form >
-          <input type="text" id="name" placeholder="NAME"  required><br><br>
-          <input type="text" id="email" placeholder="EMAIL"  required><br><br>
-          <input type="password" id="password" placeholder="PASSWORD"  required><br><br><br>
-          <input type="submit" value="SIGN UP" @submit.prevent="registerUser">
+        <form @submit.prevent="handleSubmit">
+          <input type="text" v-model="name" placeholder="NAME"  required><br><br>
+          <input type="text" v-model="email" placeholder="EMAIL"  required><br><br>
+          <input type="password" v-model="password" placeholder="PASSWORD"  required><br><br><br>
+          <button  value="SIGN UP" >Sign Up</button>
+          <!-- <input type="submit" value="SIGN UP" @submit.prevent="registerUser"> -->
         </form>
       </div>
     </section>
   </template>
 
   <script>
+  import axios from 'axios'
   export default {
-    // name: "SignUpForm",
+    // name: "Register",
     props: {
       title: {
         type: String,
@@ -23,34 +25,34 @@
     },
     data() {
       return {
-        register: {
+        // register: {
           name: "",
           email: "",
           password: ""
-      }
+      // }
       };
     },
     methods: {
+      handleSubmit(){
+        const data = {
+          name: this.name,
+          email: this.email,
+          password: this.password
+        }
+        axios.post('http://localhost:8080/Shopping-Website/Signup', data)
+          .then(
+            res => {
+              console.log(res)
+            }
+          ).catch(
+            err => {
+              console.log(err)
+            }
+          )
+        
+      },
       async registerUser() {
-        try {
-        let response = await this.$http.post("/user/Signup", this.register);
-        console.log(response);
-        let token = response.data.token;
-        if (token) {
-          localStorage.setItem("jwt", token);
-          this.$router.push("/login");
-          // swal("Success", "Registration Was successful", "success");
-        } else {
-          swal("Error", "Something Went Wrong", "error");
-        }
-      } catch (err) {
-        let error = err.response;
-        if (error.status == 409) {
-          // swal("Error", error.data.message, "error");
-        } else {
-          // swal("Error", error.data.err.message, "error");
-        }
-      }
+        
       }
     },
   };

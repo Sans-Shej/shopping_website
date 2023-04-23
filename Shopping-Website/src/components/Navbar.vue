@@ -3,6 +3,7 @@
     <div class="left">
       <p>WELCOME</p>
       <router-link class="left" to="/login"><p>Login</p></router-link>
+      <!-- <a href="#" class="left"><p>Login</p></a> -->
     
   </div>
     <div class="center">

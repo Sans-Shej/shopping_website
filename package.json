@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@auth0/auth0-spa-js": "^2.0.4",
     "register-service-worker": "^1.7.2"
   },
   "devDependencies": {
