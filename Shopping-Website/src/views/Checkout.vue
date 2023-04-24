@@ -47,7 +47,8 @@
           <p class="text-total">Total Rs.{{ cartCheckoutPrice }}</p>
         </div>
         <div class="footer-checkout" to="/checkout">
-          <div class="checkout" @click.prevent="orderSuccess()">Checkout</div>
+          <!-- <div class="checkout" @click.prevent="orderSuccess()">Checkout</div> -->
+          <button class="checkout" @click="Payment()">Checkoutt</button>
         </div>
       </div>
     </div>
@@ -78,14 +79,21 @@ export default {
     removeProductFromCart(product) {
       this.$store.dispatch("removeProductFromCart", product);
     },
-    orderSuccess() {
-      if (this.getCart.length > 0) {
-        this.order = true;
-        this.$store.dispatch("orderSuccess");
-      } else if ((this.getCart.length = 0)) {
-        this.order = false;
+    Payment() {
+      if (this.getCart.length > 0){
+      this.$router.push("/Payment");}
+      else{
+        prompt("Add Item")
       }
     },
+    // orderSuccess() {
+    //   if (this.getCart.length > 0) {
+    //     this.order = true;
+    //     this.$store.dispatch("orderSuccess");
+    //   } else if ((this.getCart.length = 0)) {
+    //     this.order = false;
+    //   }
+    // },
   },
 };
 </script>

@@ -9,6 +9,7 @@ import ProductDetails from "../views/ProductDetails.vue";
 import login from "../views/login.vue";
 import Signup from "../views/Signup.vue";
 import Payment from "../views/Payment.vue";
+import OrderSuccess from "../views/OrderSuccess.vue"
 // Vue.use(VueRouter);
 
 const routes = [
@@ -53,6 +54,12 @@ const routes = [
     path: "/Payment",
     name: "Payment",
     component: Payment,
+    props: true,
+  },
+  {
+    path: "/OrderSuccess",
+    name: "OrderSuccess",
+    component: OrderSuccess,
     props: true,
   },
   {

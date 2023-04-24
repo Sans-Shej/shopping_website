@@ -1,101 +1,3 @@
-<!--
-  <script>
-   import { mapGetters } from "vuex";
-   export default {
-    computed: {
-    ...mapGetters([
-      "cartCheckoutPrice",
-    ]),
-  },
-   };
-  </script>
-
-  <style>
-.cards{
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    margin-top: 5%;
-
-}
-.pr{
-    display: flex;
-    margin-left: 69%;
-}
-span{
-    font-size: 12px;
-    font-weight: bold;
-}
-.img{
-    border: 1px solid rgb(204, 202, 202);
-    width: 8%;
-    margin-top: 60px;
-    margin-left: 7%;
-
-}
-form>input{
-    border: none;
-    border-bottom: 1px solid rgb(196, 193, 193);
-    width: 20%;
-    height: 25px;
-    font-size: 10px;
-    font-weight: bold;
-    margin-right: 30px;
-  
-    margin-top: 50px;
-}
-.ha2{
-    margin-left: 7%;
-    font-size: 90%;
-
-}
-.card-details-container{
-   border: 1px solid black;
-    width: 50%;
-    margin: auto;
-    margin-top: 10%;
-}
-.card-holder-input{
-    margin-left: 10%;
-    width: 20%;
-}
-@media only screen and (min-width:375px) and (max-width:768px){
- 
-    .cards{
-        margin-top: 490px;
-    }
-    .pr{
-        margin-left: 50%;
-    }
-}
-
-@media only screen and (min-width:0px) and (max-width:390px){
-    .cards{
-        margin-top: 245px;
-        border-top: 2px solid black;
-    }
-    .pr{
-        margin-left: 15%;
-    }
-    .card-details-container>img{
-        width: 90px;
-    }
-    form>input{
-        width: 35%;
-        font-size: 12px;
-    }
-}
-
-.btn-continue{
-    margin-left: 75%;
-    position: relative;
-}
-  </style> -->
-
-
 <template>
     <div class="wrapper" id="app">
     <div class="card-form">
@@ -104,16 +6,17 @@ form>input{
           <div class="card-item__side -front">
             <div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }" v-bind:style="focusElementStyle" ref="focusElement"></div>
             <div class="card-item__cover">
-              <img
-              v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+              <img src="@/assets/img/card_images/1.jpeg" class="card-item__bg">
+              <!-- <img v-bind:src="'@/assets/img/card_images/' + currentCardBackground + '.jpeg'" class="card-item__bg"> -->
+            
             </div>
             
             <div class="card-item__wrapper">
               <div class="card-item__top">
-                <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png" class="card-item__chip">
+                <img src="@/assets/img/chip.png" class="card-item__chip" />
                 <div class="card-item__type">
                   <transition name="slide-fade-up">
-                    <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" v-bind:key="getCardType" alt="" class="card-item__typeImg">
+                    <img src="@/assets/img/card_images/visa.png" v-if="getCardType" v-bind:key="getCardType" alt="" class="card-item__typeImg">
                   </transition>
                 </div>
               </div>
@@ -195,8 +98,7 @@ form>input{
           </div>
           <div class="card-item__side -back">
             <div class="card-item__cover">
-              <img
-              v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'" class="card-item__bg">
+              <img src="@/assets/img/card_images/1.jpeg" class="card-item__bg">
             </div>
             <div class="card-item__band"></div>
             <div class="card-item__cvv">
@@ -208,7 +110,7 @@ form>input{
 
               </div>
                 <div class="card-item__type">
-                    <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'" v-if="getCardType" class="card-item__typeImg">
+                    <img src="@/assets/img/card_images/visa.png" v-if="getCardType" class="card-item__typeImg">
                 </div>
             </div>
           </div>
@@ -249,7 +151,7 @@ form>input{
           </div>
         </div>
 
-        <button class="card-form__button">
+        <button class="card-form__button" @click="success()">
           Submit
         </button>
       </div>
@@ -259,10 +161,11 @@ form>input{
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      currentCardBackground: Math.floor(Math.random()* 25 + 1), // just for fun :D
+      // currentCardBackground: Math.floor(Math.random()* 4 + 1), // just for fun :D
       cardName: "",
       cardNumber: "",
       cardMonth: "",
@@ -277,6 +180,7 @@ export default {
       isInputFocused: false
     };
   },
+  
   mounted() {
     this.cardNumberTemp = this.otherCardMask;
     document.getElementById("cardNumber").focus();
@@ -338,7 +242,15 @@ export default {
         }
       }, 300);
       vm.isInputFocused = false;
-    }
+    },
+    success() {
+      this.$router.push("/OrderSuccess");
+    },
+    orderSuccess() {
+      
+        this.$store.dispatch("orderSuccess");
+      
+    },
   }
 
 
@@ -892,7 +804,6 @@ body {
     }
     &.-select {
       // -webkit-appearance: none;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC');
       background-size: 12px;
       background-position: 90% center;
       background-repeat: no-repeat;
