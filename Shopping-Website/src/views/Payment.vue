@@ -6,7 +6,7 @@
           <div class="card-item__side -front">
             <div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }" v-bind:style="focusElementStyle" ref="focusElement"></div>
             <div class="card-item__cover">
-              <img src="@/assets/img/card_images/1.jpeg" class="card-item__bg">
+              <img src="@/assets/img/card_images/4.jpeg" class="card-item__bg">
               <!-- <img v-bind:src="'@/assets/img/card_images/' + currentCardBackground + '.jpeg'" class="card-item__bg"> -->
             
             </div>
@@ -98,7 +98,7 @@
           </div>
           <div class="card-item__side -back">
             <div class="card-item__cover">
-              <img src="@/assets/img/card_images/1.jpeg" class="card-item__bg">
+              <img src="@/assets/img/card_images/4.jpeg" class="card-item__bg">
             </div>
             <div class="card-item__band"></div>
             <div class="card-item__cvv">
@@ -281,9 +281,15 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
   }
+  // opacity: 0.4;
+  background: rgba(0, 0, 0, 0.69) url(@/assets/img/runwayy.jpeg) no-repeat ;
+  background-size:cover;
+  background-color: black;
+    
 }
 
 .card-form {
+  padding-top: 150px;
   max-width: 570px;
   margin: auto;
   width: 100%;
