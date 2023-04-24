@@ -2,7 +2,7 @@
   <div class="navbar" :class="{ change_color: scrollPosition > 200 }">
     <div class="left">
       <p>WELCOME</p>
-      <router-link class="left" to="/login"><p>Login</p></router-link>
+      <router-link class="left" to="/Payment"><p>Login</p></router-link>
       <!-- <a href="#" class="left"><p>Login</p></a> -->
     
   </div>

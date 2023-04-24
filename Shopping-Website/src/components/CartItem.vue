@@ -43,6 +43,7 @@ export default {
 
 <style scoped>
 .outer-card {
+  margin: auto;
   width: 100%;
   border-top: solid 1px #333;
 }

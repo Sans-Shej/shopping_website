@@ -59,7 +59,7 @@ export default {
   position: relative;
   width: 15vw;
   transition: 0.5s;
-  height: 50vh;
+  height:87%;
   background-color: #dedede;
   transform: translateX(-4%);
   border-radius: 10px;

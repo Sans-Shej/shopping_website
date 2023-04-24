@@ -3,10 +3,11 @@
     <div class="gradient-section">
       <h1 class="title">About us</h1>
       <p class="text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo recusandae
-        eos at sit reprehenderit illum dignissimos tenetur dicta! Ut est modi,
-        aliquam earum totam corporis officia fugiat ipsa quis animi.
-      </p>
+        Fabrique aims at creating a way for users to have access to sustainably 
+        made products. As users have started shifting more towards sustainable 
+        and eco friendly products there is a need for sustainable fashion to be
+         made accessible which is what we aim to accomplish with our platform.
+     </p>
     </div>
     <img class="heroAbout" src="@/assets/img/heroAbout.jpg" />
   </div>

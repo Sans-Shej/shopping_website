@@ -15,8 +15,7 @@
               name: 'ProductDetails',
               params: { gender: item.product.gender, id: item.product.id },
             }"
-            class="card"
-          >
+            class="card">
             <img class="card-image" :src="item.product.src" />
             <div class="card-text">
               <p class="item-brand">{{ item.product.brand }}</p>
@@ -174,7 +173,7 @@ export default {
 .checkout-card .header-checkout .checkout-title {
   position: relative;
   font-family: "Magisho", sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
   width: 10vw;
   height: fit-content;
   margin: 0.8em 0;
@@ -263,7 +262,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: fit-content;
+  height:fit-content;
   width: 52vw;
   padding: 0.5em 0em 5em 0em;
   background-color: rgba(0, 0, 0);
@@ -280,13 +279,13 @@ export default {
 .card-section .outer-card:first-child {
   border-top: 2px solid rgb(40, 40, 40);
 }
-
+/* product section */
 .card-section .outer-card .card {
   display: flex;
   flex-direction: row;
   position: relative;
   width: 50vw;
-  height: 14vh;
+  height: fit-content;
   background: rgb(7, 7, 7);
   cursor: pointer;
   border: none;
@@ -295,9 +294,9 @@ export default {
   transition: transform 0.6s;
   justify-content: flex-end;
   align-items: center;
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   text-decoration: none;
-  padding: 2em 0em;
+  padding: 0.1em 0em;
   border-bottom: 2px solid rgb(40, 40, 40);
 }
 
@@ -315,10 +314,13 @@ export default {
   transition: transform 0.6s;
   filter: brightness(80%);
   position: relative;
-  width: 15vw;
-  height: 20vh;
+  width: 12vw;
+  height:12vw;
+  /* height: 30vh; */
+  /* max-height: 20vw; */
   min-width: 5vw;
-  padding: 4em 0em;
+  padding: 1em 1em;
+  
 }
 
 .outer-card:hover > .card > .card-image {
@@ -342,6 +344,7 @@ export default {
   color: rgb(214, 214, 214);
   margin: 0;
   margin-bottom: 1em;
+  margin-top: 13px;
 }
 .card-text > .item-brand {
   margin: 0;
@@ -362,8 +365,9 @@ export default {
 .card-text > .item-size-text {
   display: flex;
   flex-direction: row;
-  position: absolute;
-  bottom: 10px;
+  position:relative;
+  margin-top: 1em;
+  bottom: 0.05em;
   font-size: 0.9rem;
   color: rgb(179, 179, 179);
   font-family: "Valverde", sans-serif;
@@ -377,7 +381,7 @@ export default {
 .card-text > .item-price {
   display: flex;
   justify-content: right;
-  margin-top: 2em;
+  margin-top: 0.05em;
   font-size: 1rem;
   letter-spacing: 0.2em;
   color: white;
