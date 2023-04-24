@@ -62,7 +62,7 @@ export default {
   transition: 0.5s;
 }
 .cart-item:hover {
-  background-color: rgb(100, 100, 100);
+  background-color: rgba(149, 149, 149, 0.666);
 }
 
 .cart-item img {

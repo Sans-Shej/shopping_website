@@ -131,7 +131,7 @@ export default {
 .outer-card .cart .cart-body {
   background-color: #dedede;
   overflow: auto;
-  height: 38.3vh;
+  height: 87%;
 }
 
 .outer-card .cart .cart-footer {

@@ -1,124 +1,119 @@
 <template>
-    
-    <v-app>
-        <v-container class="center-screen">
-            <v-card width=400 height="auto" class="container-class" flat color="transparent">
-                <h2> Signup </h2>
-                <form @submit.prevent="submit">
-                    <v-text-field v-model="name.value.value" :counter="30" :error-messages="name.errorMessage.value"
-                        label="Name"></v-text-field>
+    <section>
+      <div class="form"><br>
+        <h1>{{ title }}</h1><br>
+        <form @submit.prevent="handleSubmit">
+          <input type="text" v-model="name" placeholder="NAME"  required><br><br>
+          <input type="text" v-model="email" placeholder="EMAIL"  required><br><br>
+          <input type="password" v-model="password" placeholder="PASSWORD"  required><br><br><br>
+          <button  value="SIGN UP" >Sign Up</button>
+          <!-- <input type="submit" value="SIGN UP" @submit.prevent="registerUser"> -->
+        </form>
+      </div>
+    </section>
+  </template>
 
-                    <v-text-field v-model="phone.value.value" :counter="10" :error-messages="phone.errorMessage.value"
-                        label="Username"></v-text-field>
-
-                    <v-text-field v-model="email.value.value" :error-messages="email.errorMessage.value"
-                        label="E-mail"></v-text-field>
-
-                    <v-text-field type="password" v-model="password.value.value" :counter="32"
-                        :error-messages="password.errorMessage.value" label="Password"></v-text-field>
-
-                    <v-text-field type="password" v-model="confirmpassword.value.value"
-                        :error-messages="confirmpassword.errorMessage.value" label="Confirm Password"></v-text-field>
-
-
-                    <v-btn class="me-4" type="submit">
-                        submit
-                    </v-btn>
-
-                    <v-btn @click="handleReset">
-                        clear
-                    </v-btn>
-
-                </form>
-            </v-card>
-        </v-container>
-    </v-app>
-</template>
-
-<script>
-
-import { ref } from 'vue'
-import { useField, useForm } from 'vee-validate'
-
-export default {
-    setup() {
-        const { handleSubmit, handleReset } = useForm({
-            validationSchema: {
-                name(value) {
-                    if (value?.length >= 2) return true
-
-                    return 'Name needs to be at least 2 characters.'
-                },
-
-
-                phone(value) {
-                    if (value?.length >= 2) return true
-
-                    return 'Phone number needs to be at least 2 Characters.'
-                },
-                email(value) {
-                    if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
-
-                    return 'Must be a valid e-mail.'
-                },
-                password(value) {
-                    if (value?.length >= 8) return true
-
-                    return 'Must be a valid password.'
-                },
-
-                confirmpassword(value) {
-                    if (password.value.value === value) return true
-                    return "Passwords don't match."
-                },
-
-                select(value) {
-                    if (value) return true
-
-                    return 'Select an item.'
-                },
-                checkbox(value) {
-                    if (value === '1') return true
-
-                    return 'Must be checked.'
-                },
-            },
-        })
-        const name = useField('name')
-        const username = useField('name')
-        const phone = useField('phone')
-        const email = useField('email')
-        const password = useField('password')
-        const confirmpassword = useField('confirmpassword')
-        const select = useField('select')
-        const checkbox = useField('checkbox')
-
-        const items = ref([
-            'Item 1',
-            'Item 2',
-            'Item 3',
-            'Item 4',
-        ])
-
-        const submit = handleSubmit(values => {
-            alert(JSON.stringify(values, null, 2))
-        })
-
-
-        return { name, phone, confirmpassword, password, username, email, select, checkbox, items, submit, handleReset }
+  <script>
+  import axios from 'axios'
+  export default {
+    // name: "Register",
+    props: {
+      title: {
+        type: String,
+        default: "Sign up",
+      },
     },
-
+    data() {
+      return {
+        // register: {
+          name: "",
+          email: "",
+          password: ""
+      // }
+      };
+    },
+    methods: {
+      handleSubmit(){
+        const data = {
+          name: this.name,
+          email: this.email,
+          password: this.password
+        }
+        axios.post('http://localhost:8080/Shopping-Website/Signup', data)
+          .then(
+            res => {
+              console.log(res)
+            }
+          ).catch(
+            err => {
+              console.log(err)
+            }
+          )
+        
+      },
+      async registerUser() {
+        
+      }
+    },
+  };
+  </script>
   
-}
-
-</script>
-
-<style scoped>
-.center-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-}
-</style>
+  <style scoped>
+    section {
+      background: url("@/assets/img/heroAbout.jpg") no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+    }
+  
+    section {
+      display: flex;
+    }
+  
+    h1 {
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 35px;
+      font-weight: bold;
+      color: rgb(254, 254, 254);
+      text-transform: uppercase;
+    }
+  
+    .form {
+      position: absolute;
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%,-50%);
+      border: 2px solid #ffffff;
+      background: transparent;
+      backdrop-filter: blur(60px);
+      width: 400px;
+      height: 450px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 20px;
+    }
+  
+    input {
+      margin-top: 20px;
+      padding: 15px;
+      height: 35px;
+      width: 330px;
+      font-size: 14px;
+      border-radius: 6px;
+      outline: none;
+      border: none;
+      position: relative;
+    }
+  
+    input[type="submit"] {
+      font-weight: bold;
+      background: deepskyblue;
+      color: #fff;
+      letter-spacing: 2px;
+      height: 45px;
+      cursor: pointer;
+    }
+  </style>
