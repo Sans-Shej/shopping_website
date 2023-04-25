@@ -293,7 +293,6 @@ body {
   max-width: 570px;
   margin: auto;
   width: 100%;
-
   @media screen and (max-width: 576px) {
     margin: 0 auto;
   }

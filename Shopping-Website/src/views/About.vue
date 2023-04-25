@@ -20,6 +20,10 @@ export default {};
 <style scoped>
 .gradient-section {
   display: flex;
+  @media screen and (max-width: 700px), (max-height: 500px) {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
   flex-direction: column;
   position: fixed;
   width: 100%;
