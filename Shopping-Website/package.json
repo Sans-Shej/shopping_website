@@ -19,6 +19,7 @@
     "vue-paystack": "^2.0.4",
     "vue-responsive-video-background-player": "^2.3.1",
     "vue-router": "^4.0.3",
+    "vuetify": "^3.1.14",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
