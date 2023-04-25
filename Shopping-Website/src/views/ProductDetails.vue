@@ -69,7 +69,6 @@ export default {
 </script>
 
 <style scoped>
-/* @import url("http://fonts.cdnfonts.com/css/valverde"); */
 option:first-child {
   display: none;
 }
@@ -143,7 +142,7 @@ option:first-child {
   font-size: 1.2srem;
   text-indent: 0.6em;
   color: rgb(196, 196, 196);
-  font-family: "Valverde", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 0.1em;
   text-shadow: 1px 1px 2px black;
 }
@@ -166,7 +165,7 @@ option:first-child {
   letter-spacing: 0.2em;
   text-indent: 0.5em;
   color: rgb(219, 219, 219);
-  font-family: "Valverde", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-shadow: 1px 1px 2px black;
 }
 .details .description {

@@ -8,6 +8,7 @@ import Checkout from "../views/Checkout.vue";
 import ProductDetails from "../views/ProductDetails.vue";
 import login from "../views/login.vue";
 import Signup from "../views/Signup.vue";
+import Profile from "../views/Profile.vue";
 import Payment from "../views/Payment.vue";
 import OrderSuccess from "../views/OrderSuccess.vue"
 // Vue.use(VueRouter);
@@ -63,16 +64,22 @@ const routes = [
     props: true,
   },
   {
+    path: "/signup",
+    name: "Signup",
+    component: Signup,
+    props: true,
+  },
+  {
     path: "/login",
     name: "login",
     component: login,
     props: true,
   },
   {
-    path: "/Signup",
-    name: "Signup",
-    component: Signup,
-    // props: true,
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+    props: true,
   },
   {
     path: "/shop/:gender/:id",
@@ -92,18 +99,5 @@ const router = createRouter({
   routes,
 });
 
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     if (localStorage.getItem("jwt") == null) {
-//       next({
-//         path: "/"
-//       });
-//     } else {
-//       next();
-//     }
-//   } else {
-//     next();
-//   }
-// });
 
 export default router;
