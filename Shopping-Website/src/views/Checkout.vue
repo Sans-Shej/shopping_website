@@ -83,7 +83,7 @@ export default {
       if (this.getCart.length > 0){
       this.$router.push("/Payment");}
       else{
-        prompt("Add Item")
+        alert("Add Item")
       }
     },
     // orderSuccess() {
@@ -358,7 +358,7 @@ export default {
   margin: 0;
   font-size: 0.9em;
   color: rgb(180, 180, 180);
-  font-family: "Valverde", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 0.1em;
   text-shadow: 1px 1px 2px black;
 }
@@ -366,7 +366,7 @@ export default {
   margin: 0;
   font-size: 0.9em;
   color: rgb(255, 255, 255);
-  font-family: "Valverde", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 0.1em;
   text-shadow: 1px 1px 2px black;
 }
@@ -378,12 +378,12 @@ export default {
   bottom: 0.05em;
   font-size: 0.9rem;
   color: rgb(179, 179, 179);
-  font-family: "Valverde", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .card-text .item-size-text .item-size {
   font-size: 0.9rem;
   color: rgb(179, 179, 179);
-  font-family: "Valverde", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
 }
 .card-text > .item-price {
@@ -393,7 +393,7 @@ export default {
   font-size: 1rem;
   letter-spacing: 0.2em;
   color: white;
-  font-family: "Valverde", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 100;
 }
 

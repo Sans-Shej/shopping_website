@@ -124,7 +124,7 @@ export default {
   padding-left: 1em;
   letter-spacing: 0.1em;
   color: black;
-  font-family: "Valverde", sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 100;
 }
 

@@ -20,7 +20,6 @@ export default {};
 <style scoped>
 .gradient-section {
   display: flex;
-  flex-direction: column;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -32,29 +31,29 @@ export default {};
   overflow: hidden;
 }
 .gradient-section .title {
-  position: absolute;
-  align-self: center;
+  position: relative;
+  /* align-self: center; */
   text-align: center;
   letter-spacing: 0.3em;
-  font-weight: 100;
+  font-weight:bold;
   text-indent: 0.3em;
-  font-size: 3rem;
+  font-size:large;
   color: #fff;
   text-transform: uppercase;
   font-family: "Magisho", sans-serif;
-  margin-top: 6em;
+  margin-top: 0.8%;
   text-shadow: 1px 1px 2px black;
 }
 .gradient-section .text {
-  position: absolute;
+  position: relative;
   align-self: center;
   text-align: center;
   font-family: "Magisho", sans-serif;
-  font-size: 1.3rem;
+  font-size:1em;
   font-weight: 100;
   letter-spacing: 0.1em;
-  margin-top: 18em;
-  padding: 0em 20em;
+  margin-top: 10%;
+  padding: 0% 10%;
   text-shadow: 1px 1px 2px black;
   color: #fff;
 }
@@ -77,10 +76,13 @@ export default {};
 @media only screen and (max-width: 600px) {
   .gradient-section .title {
     font-size: 2rem;
+    display: flex;
   }
   .gradient-section .text {
     font-size: 1rem;
-    width: 40vh;
+    width: 40%;
+    display: flex;
+    color: aqua;
   }
 }
 </style>

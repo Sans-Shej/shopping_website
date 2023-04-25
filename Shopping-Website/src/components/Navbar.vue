@@ -2,8 +2,11 @@
   <div class="navbar" :class="{ change_color: scrollPosition > 200 }" >
     <div class="left">
       <p>WELCOME</p>
-      <router-link class="left" to="/Login"><p>Login</p></router-link>
-      <!-- <a href="#" class="left"><p>Login</p></a> -->
+      <!-- <router-link class="left" to="/Login"><p>Login</p></router-link> -->
+      <router-link class="left" to="/login" v-if="!isLoggedIn"><p>Login</p></router-link>
+      <router-link class="left" to="/signup" v-if="!isLoggedIn"><p>Register</p></router-link>
+      <router-link class="left" to="/profile" v-if="isLoggedIn"><p>Profile</p></router-link>
+      <router-link class="left" to="/" v-if="isLoggedIn"><p>Logout</p></router-link>
     
   </div>
     <div class="center">
@@ -43,6 +46,7 @@ export default {
   },
   computed: {
     ...mapGetters(["cartItemCount"]),
+    ...mapGetters(["isLoggedIn"])
   },
   mounted() {
     window.addEventListener("scroll", this.updateScroll);
@@ -67,7 +71,7 @@ export default {
   color: #fff;
   border-radius: 1em;
   padding: 0.3em 0.6em;
-  font-family: "Valverde", sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-size: 0.7em;
 }
 
