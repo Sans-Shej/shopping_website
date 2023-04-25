@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar" :class="{ change_color: scrollPosition > 200 }">
+  <div class="navbar" :class="{ change_color: scrollPosition > 200 }" >
     <div class="left">
       <p>WELCOME</p>
       <router-link class="left" to="/Login"><p>Login</p></router-link>

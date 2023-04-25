@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" >
     <div class="gradient" />
     <video autoplay loop muted plays-inline class="hero">
       <source src="@/assets/videos/video.mp4" type="video/mp4" />
