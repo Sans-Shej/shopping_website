@@ -3,10 +3,10 @@
     <div class="left">
       <p  class="welcome">WELCOME</p>
       <!-- <router-link class="left" to="/Login"><p>Login</p></router-link> -->
-      <router-link class="left" to="/login" v-if="!isLoggedIn"><p>Login</p></router-link>
+      <router-link class="left" to="/login" v-if="!$store.state.token"><p>Login</p></router-link>
       <!-- <router-link class="left" to="/Signup" v-if="!isLoggedIn"><p>Register</p></router-link> -->
       <!-- <router-link class="left" to="/profile" v-if="isLoggedIn"><p>Profile</p></router-link> -->
-      <router-link class="left" to="/" v-if="isLoggedIn"><p>Logout</p></router-link>
+      <router-link class="left" to="/" v-if="$store.state.token"><p @click="logoutUser">Logout</p></router-link>       
     
   </div>
     <div class="center">
@@ -35,6 +35,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { mapActions } from 'vuex';
 
 export default {
   name: "Navbar",
@@ -52,6 +53,11 @@ export default {
     window.addEventListener("scroll", this.updateScroll);
   },
   methods: {
+    ...mapActions(["authLogout"]),
+    logoutUser(){
+      this.authLogout();
+      alert("Logged Out Successfully!");
+    },
     updateScroll() {
       this.scrollPosition = window.scrollY;
     },

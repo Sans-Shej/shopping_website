@@ -17,6 +17,8 @@ import * as directives from 'vuetify/directives'
 
 // Vue.config.productionTip = false
 
+axios.defaults.baseURL = 'http://localhost:5000';
+
 const vuetify = createVuetify({
   components,
   directives,
@@ -24,20 +26,4 @@ const vuetify = createVuetify({
 
 
 createApp(App).use(router).use(store).use(vuetify).mount("#app");
-
-// setting up default vue's http modules for api calls
-Vue.prototype.$http = axios;
-// load the token from local storage
-const token = localStorage.getItem("token");
-// is there any default auth headers
-if(token){
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
-}
-
-createApp(App).use(router).use(store).use(vuetify).mount("#app");
-
-// createApp(App).use(router).use(store).mount("#app");
-// const base = axios.create({
-//     baseURL: "http://localhost:8080"
-//   });
 
