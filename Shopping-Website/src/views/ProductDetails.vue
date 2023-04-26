@@ -91,7 +91,7 @@ option:first-child {
   position: fixed;
   width: 40%;
   height: 100%;
-  background-image: linear-gradient(to right, transparent, black 80%);
+  background-image: linear-gradient(to right, transparent, black 90%);
   z-index: -1;
   text-align: center;
   align-items: center;
@@ -140,11 +140,13 @@ option:first-child {
 .details .brand {
   margin: 0;
   font-size: 1.2srem;
+  font-weight: bolder;
   text-indent: 0.6em;
-  color: rgb(196, 196, 196);
+  padding-bottom: 1em;
+  color: rgb(201, 201, 201);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 0.1em;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 5px 5px rgb(0, 0, 0);
 }
 .details .title {
   align-self: left;
@@ -166,7 +168,7 @@ option:first-child {
   text-indent: 0.5em;
   color: rgb(219, 219, 219);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 3px 3px black;
 }
 .details .description {
   font-size: 1rem;
@@ -174,6 +176,7 @@ option:first-child {
   word-wrap: break-word;
   text-align: left;
   padding-bottom: 2em;
+  padding-top: 2em;
   border-bottom: 1px solid white;
   text-shadow: 1px 1px 2px black;
   font-family: "Magisho", sans-serif;
@@ -254,14 +257,35 @@ option:first-child {
     width: 100%;
     height: 100%;
     background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 1) 0%,
+      70deg,
+      rgba(0, 0, 0, 0.674) 80%,
       rgba(0, 212, 255, 0) 100%
     );
   }
-  .details .cart,
-  .details .description,
-  .details .title,
+  
+  .container{
+    display: flex;
+    /* width: fit-content; */
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+    transform: scale(0.87);
+    padding-left: 1em;
+    margin-left: 0%;
+    /* transform: translateX(40%); */
+  }
+  
+  .details .title{
+    /* display: flex;
+    justify-content: center; */
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    text-indent: 0;
+    /* align-self:baseline; */
+
+  }
   .details .price,
   .details .brand {
     justify-content: center;
@@ -269,9 +293,13 @@ option:first-child {
     text-align: center;
     text-indent: 0;
   }
-  .details .brand {
-    text-indent: -10px;
+
+  .details .description{
+    width: 30vh;
+    padding-top: 1em;
   }
+  
+  
   .details .cart-button,
   .details .select {
     width: 20vh;

@@ -48,7 +48,7 @@
         </div>
         <div class="footer-checkout" to="/checkout">
           <!-- <div class="checkout" @click.prevent="orderSuccess()">Checkout</div> -->
-          <button class="checkout" @click="Payment()">Checkoutt</button>
+          <button class="checkout" @click="Payment()">Checkout</button>
         </div>
       </div>
     </div>
@@ -171,7 +171,7 @@ export default {
   width: 100%;
   display: flex;
   align-self: center;
-  width: 15vw;
+  
   height: fit-content;
   border-radius: 1em 1em 1em 1em;
   justify-content: center;
@@ -182,7 +182,7 @@ export default {
   position: relative;
   font-family: "Magisho", sans-serif;
   font-size: 1em;
-  width: 10vw;
+  width: 80%;
   height: fit-content;
   margin: 0.8em 0;
   align-self: center;
@@ -413,5 +413,72 @@ export default {
 }
 .cancel .uil:hover {
   color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+.checkout-card{
+  margin: 1em 1em;
+  background-color: rgb(240, 240, 240);
+  width: 20vh;
+  padding-right: 0em;
+}
+.checkout-card .header-checkout {
+  position: relative;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  height: fit-content;
+  border-radius: 1em 1em 1em 1em;
+  justify-content: center;
+}
+.checkout-card .footer-checkout {
+  
+  /* width: 100%; */
+  display: flex;
+  align-self: center;
+  width: 100%;
+  height: 7vh;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  border-radius: 2em 2em 1em 1em;
+  justify-content: center;
+  border-top: 1px solid black;
+  background-color: #eaeaea;
+}
+/* .checkout-card .body-checkout, */
+.card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height:fit-content;
+  width: 52vw;
+  padding: 0.5em 0em 4em 0em;
+  background-color: rgb(0, 0, 0);
+}
+.checkout-card .footer-checkout .checkout {
+  margin-bottom: 0.2em;
+  display: block;
+  transition: 0.5s;
+  align-self: center;
+  text-align: center;
+  width:fit-content ;
+
+}
+
+.card-image{
+  display: none;
+}
+.card-text > .item-price {
+  display: flex;
+  justify-content: left;
+  margin-top: 0.05em;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+}
+
 }
 </style>

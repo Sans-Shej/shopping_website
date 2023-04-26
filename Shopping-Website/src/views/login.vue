@@ -18,7 +18,7 @@
             <button id>Log in</button>
             <div class="register">
               <br /> 
-              <p>Don't have an account? <a href="#">Register</a></p>
+              <p>Don't have an account? <RouterLink to="/SignUp">Register</RouterLink></p>
             </div>
           </form>
         </div>

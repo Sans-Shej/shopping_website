@@ -1,14 +1,16 @@
 <template>
   <div >
     <div class="gradient-section">
-      <h1 class="title">ORDER SUCCESSFUL!</h1><hr>
-      <p class="text">
-        Thank you for shopping with us! Visit Again!<br><br>More about Us<br>
-        Fabrique aims at creating a way for users to have access to sustainably 
-        made products. As users have started shifting more towards sustainable 
-        and eco friendly products there is a need for sustainable fashion to be
-         made accessible which is what we aim to accomplish with our platform.
-     </p>
+      <div class="section">
+        <h1 class="title">ORDER SUCCESSFUL!</h1><hr>
+        <p class="text">
+          Thank you for shopping with us! Visit Again!<br><br>More about Us<br>
+          Fabrique aims at creating a way for users to have access to sustainably 
+          made products. As users have started shifting more towards sustainable 
+          and eco friendly products there is a need for sustainable fashion to be
+          made accessible which is what we aim to accomplish with our platform.
+      </p>
+     </div>
     </div>
     <img class="heroAbout" src="@/assets/img/heroAbout.jpg" />
   </div>
@@ -19,6 +21,14 @@ export default {};
 </script>
 
 <style scoped>
+.section{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+}
 .gradient-section {
   display: flex;
   flex-direction: column;
@@ -76,12 +86,25 @@ export default {};
 }
 
 @media only screen and (max-width: 600px) {
+  
   .gradient-section .title {
     font-size: 2rem;
   }
   .gradient-section .text {
     font-size: 1rem;
-    width: 40vh;
+    /* width: 40vh; */
+    position: relative;
+    display: flex;
+    width: 120%;
   }
+  .section{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  padding-left: 1em;
+}
 }
 </style>

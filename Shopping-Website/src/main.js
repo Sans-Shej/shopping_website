@@ -6,6 +6,9 @@ import store from "./store";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import './registerServiceWorker'
+// import { VueResponsiveComponents } from "vue-responsive-components"
+ 
+// Vue.use(VueResponsiveComponents)
 
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'

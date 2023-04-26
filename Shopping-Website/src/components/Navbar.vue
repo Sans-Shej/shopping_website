@@ -1,11 +1,11 @@
 <template>
   <div class="navbar" :class="{ change_color: scrollPosition > 200 }" >
     <div class="left">
-      <p>WELCOME</p>
+      <p  class="welcome">WELCOME</p>
       <!-- <router-link class="left" to="/Login"><p>Login</p></router-link> -->
       <router-link class="left" to="/login" v-if="!isLoggedIn"><p>Login</p></router-link>
-      <router-link class="left" to="/signup" v-if="!isLoggedIn"><p>Register</p></router-link>
-      <router-link class="left" to="/profile" v-if="isLoggedIn"><p>Profile</p></router-link>
+      <!-- <router-link class="left" to="/Signup" v-if="!isLoggedIn"><p>Register</p></router-link> -->
+      <!-- <router-link class="left" to="/profile" v-if="isLoggedIn"><p>Profile</p></router-link> -->
       <router-link class="left" to="/" v-if="isLoggedIn"><p>Logout</p></router-link>
     
   </div>
@@ -16,7 +16,7 @@
         <router-link class="nav-page" to="/">Home</router-link>
         <router-link class="nav-page" to="/women">Women</router-link>
         <router-link class="nav-page" to="/men">Men</router-link>
-        <router-link class="nav-page" to="/about">About</router-link>
+        <router-link class="nav-page" to="/checkout">Checkout</router-link>
       </div>
     </div>
     <div class="right">
@@ -76,10 +76,10 @@ export default {
 }
 
 .navbar {
-  display: grid;
-  align-items: center;
+  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: transparent;
+  align-items: center;
   width: 100%;
   height: 6em;
   top: 0;
@@ -102,9 +102,15 @@ export default {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: left;
-  padding-left: 0.8em;
+  padding-left: 0.5em;
+  padding-top: 0.8em;
+  /* padding-right: 0em; */
   text-shadow: 1px 1px 2px black;
   text-decoration: none;
+}
+
+.welcome{
+  padding-top: 0.8em;
 }
 .navbar .left img {
   display: flex;
@@ -127,15 +133,16 @@ export default {
   text-shadow: 1px 1px 2px black;
 }
 .navbar .center .logo {
+
   display: flex;
   color: #f8f8f8;
-  font-size: 30px;
+  font-size: 25px;
   font-family: "Hjet", sans-serif;
   text-decoration: none;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 0em 0.6em;
-  font-size: 3em;
+  align-items: center;
+  justify-content: center;
+  padding: 0em 0.3em;
+  font-size: 2.7em;
   letter-spacing: 0.1em;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -150,7 +157,7 @@ export default {
   align-items: flex-start;
   font-family: "Magisho", sans-serif;
   text-indent: 0.4em;
-  margin-top: -1em;
+  margin-top: -0.51em;
   text-decoration: none;
   letter-spacing: 0.2em;
 }
@@ -224,28 +231,45 @@ export default {
 
 @media only screen and (max-width: 600px) {
   .navbar {
-    /* transform: translateX(17%); */
+    /* transform: translateX(0%); */
     display: flex;
     justify-content: center;
   }
   .navbar .center {
-    transform: translateX(4%);
+    /* transform: translateX(0.4%); */
+    /* display: flex; */
+    justify-content: center;
   }
-
-  .navbar .left {
+  .nav-page{
+    display: flex;
+    justify-content: center;
+  }
+  .welcome{
     display: none;
+  }
+  .navbar .left {
+    display: flex;
+    justify-content: left;
+    padding-top: 0.6em;
+    padding-left: 0em;
+    padding-right: 0.2em;
+    
+    /* margin-left: 1em; */
   }
   .navbar .right {
     display: flex;
     justify-content: right;
-    padding: 0;
-    margin-left: 1em;
+    /* padding-left: 0.1em; */
+    padding-right: 0.3em;
+    /* margin-left: 0; */
   }
   .navbar .right .search {
-    display: none;
+    display: flex;
+    justify-content: right;
+    /* padding-left:8em; */
   }
   .navbar .right .cart {
-    justify-content: right;
+    display: none;
   }
 }
 </style>

@@ -37,17 +37,18 @@ export default {};
   letter-spacing: 0.3em;
   font-weight:bold;
   text-indent: 0.3em;
-  font-size:large;
+  font-size:smaller;
   color: #fff;
   text-transform: uppercase;
   font-family: "Magisho", sans-serif;
   margin-top: 0.8%;
+  padding-left: 1em;
   text-shadow: 1px 1px 2px black;
 }
 .gradient-section .text {
   position: relative;
   align-self: center;
-  text-align: center;
+  text-align: right;
   font-family: "Magisho", sans-serif;
   font-size:1em;
   font-weight: 100;
@@ -80,9 +81,19 @@ export default {};
   }
   .gradient-section .text {
     font-size: 1rem;
-    width: 40%;
+    /* width: 40vh; */
+    position: relative;
     display: flex;
-    color: aqua;
+    width: 120%;
   }
+  .section{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  padding-left: 1em;
+}
 }
 </style>

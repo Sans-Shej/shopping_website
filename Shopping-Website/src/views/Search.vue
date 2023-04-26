@@ -268,4 +268,59 @@ export default {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 100;
 }
+
+@media only screen and (max-width: 600px) {
+
+  .card-section .outer-card .card {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  background: rgb(7, 7, 7);
+  cursor: pointer;
+  border: none;
+  border-bottom: inherit;
+  /* overflow: hidden; */
+  transform: scale(1);
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 1.5em 1em;
+  border-bottom: 2px solid rgb(40, 40, 40);
+}
+.search-container .searchInput {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  width: 35vw;
+  height: 4vh;
+  transition: 0.8s;
+  background: transparent;
+  font-family: "Magisho", sans-serif;
+  text-indent: 0.4em;
+  font-size: 18px;
+  border: 1px solid rgb(90, 90, 90);
+  border-radius: 0.4em;
+  background-color: rgb(21, 21, 21);
+  color: rgb(90, 90, 90);
+}
+.search-container .search-result {
+  position: relative;
+  display: flex;
+  color: white;
+  justify-content: right;
+  width: 40vw;
+  margin: 1;
+  font-size: 1.2em;
+  color: rgb(251, 251, 251);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 0.1em;
+  text-shadow: 1px 1px 2px black;
+}
+}
 </style>
