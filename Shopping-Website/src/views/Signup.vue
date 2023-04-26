@@ -10,7 +10,7 @@
 
                         <v-text-field v-model="username" :counter="10" label="Username"></v-text-field>
 
-                        <v-text-field v-model="email" label="E-mail" class="form-control"></v-text-field>
+                        <v-text-field v-model="email" label="E-mail"></v-text-field>
 
                         <v-text-field type="password" v-model="password" :counter="32" label="Password"></v-text-field>
 
